@@ -23,14 +23,14 @@ namespace Backend_AYNI.Services
             this.databaseContext = databaseContext;
         }
 
-        public async Task<AuthenticationResult> RegisterAsync(string userName, string email, string password)
+        public async Task<AuthenticationResult> RegisterAsync(string userName,string email, string password)
         {
             var existingUser = await _userManager.FindByNameAsync(userName);
             if (existingUser != null)
             {
                 return new AuthenticationResult
                 {
-                    Errors = new[] { "Ya existe un usuario con este nombre" }
+                    Errors = new[] { "Ya existe un usuario con este correo" }
                 };
             }
             var newUser = new UserModel
@@ -47,14 +47,14 @@ namespace Backend_AYNI.Services
                     Errors = new[] { "No se pudo registrar el usuario" }
                 };
             }
-            var getUser = await _userManager.FindByNameAsync(userName);
+            var getUser = await _userManager.FindByNameAsync(email);
 
             return await GenerateAthenticationResultForUserAsync(newUser);
         }
 
-        public async Task<AuthenticationResult> LoginAsync(string userName, string password)
+        public async Task<AuthenticationResult> LoginAsync(string userMail, string password)
         {
-            var user = await _userManager.FindByNameAsync(userName);
+            var user = await _userManager.FindByEmailAsync(userMail);
             if (user == null)
             {
                 return new AuthenticationResult

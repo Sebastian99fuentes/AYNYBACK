@@ -6,7 +6,7 @@ namespace Backend_AYNI.Models
     public class ForumModel
     {
         [Key]
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public string topic { get; set; }
         public string content { get; set; }
 

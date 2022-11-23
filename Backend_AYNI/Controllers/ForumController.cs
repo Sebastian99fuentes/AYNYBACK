@@ -18,7 +18,7 @@ namespace Backend_AYNI.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<ForumModel>>> Get()
         {
-            var forums = await context.Forums.ToListAsync();
+            var forums = await context.Forums.Include(o => o.owner).ToListAsync();
             if (!forums.Any())
                 return NotFound();
             return forums;

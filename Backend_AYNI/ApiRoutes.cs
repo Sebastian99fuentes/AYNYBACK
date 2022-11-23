@@ -6,6 +6,7 @@
         {
             public const string Register = "register";
             public const string Login = "login";
+            public const string Recover = "recover";
         }
     }
 }
