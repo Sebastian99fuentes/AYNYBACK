@@ -104,7 +104,8 @@ namespace Backend_AYNI.Services
             return new AuthenticationResult
             {
                 Success = true,
-                Token = tokenHandler.WriteToken(token)
+                //Token = tokenHandler.WriteToken(token)
+                Token = newUser.Id
             };
         }
 
