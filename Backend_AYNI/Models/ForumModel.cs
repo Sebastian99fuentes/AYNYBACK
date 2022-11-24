@@ -7,7 +7,7 @@ namespace Backend_AYNI.Models
     {
         [Key]
         public string? Id { get; set; }
-        public string topic { get; set; }
+        public string? topic { get; set; }
         public string content { get; set; }
 
         public string UserId { get; set; }
