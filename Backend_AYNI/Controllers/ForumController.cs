@@ -35,7 +35,7 @@ namespace Backend_AYNI.Controllers
         [HttpGet(template: ApiRoutes.Forum.Padre)]
         public async Task<ActionResult<ICollection<ForumModel>>> GetPorPadre(string id)
         {
-            var forum = await context.Forums.Where(e => e.fatherId.Equals(id)).FirstOrDefaultAsync();
+            var forum = await context.Forums.Where(e => e.fatherId.Equals(id)).ToListAsync();
             if (forum == null)
                 return NotFound();
             return Ok(forum);
