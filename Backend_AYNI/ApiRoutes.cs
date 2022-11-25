@@ -8,5 +8,9 @@
             public const string Login = "login";
             public const string Recover = "recover";
         }
+        public static class Forum
+        {
+            public const string Padre = "padre/id";
+        }
     }
 }
